@@ -1,0 +1,30 @@
+#grid{
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+body{
+    background: linear-gradient(blue,green) ;
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    /* width: 100vh; */
+}
+
+/* use position absolute and top bottom to position elements inside a div */
+
+.tocenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
