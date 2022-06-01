@@ -67,11 +67,21 @@ function displayelements(){
     }
 
 function checkMatch(){
+
+  // const cards = document.querySelectorAll('img')
+  // if(cardschosen[0]==cardschosen[1]){
+  //   alert('hurray ! found a match')
+  //   cards[cardschosenId[0]].setAttribute('src','images/white.png')
+  //   cards[cardschosenId[1]].setAttribute('src','images/white.png')
+  //   cards[cardschosenId[0]].removeEventListener('click',flipcard)
+  //   cards[cardschosenId[1]].removeEventListener('click',flipcard)
+    
+  // }
   const allcards = document.querySelectorAll('img')//we need all html img elements not the array
   if (cardschosen[0]==cardschosen[1]){
     alert('wegotta fighter here!')
-    allcards[cardschosenId[0]].setAttribute('img','images/white.png')
-    allcards[cardschosenId[1]].setAttribute('img','images/white.png')
+    allcards[cardschosenId[0]].setAttribute('src','images/white.png')
+    allcards[cardschosenId[1]].setAttribute('src','images/white.png')
     allcards[cardschosenId[0]].removeEventListener('click',flipcard)
     allcards[cardschosenId[1]].removeEventListener('click',flipcard)
 
