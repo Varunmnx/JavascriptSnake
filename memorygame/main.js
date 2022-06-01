@@ -65,8 +65,10 @@ function displayelements(){
        grid.appendChild(card);
        card.addEventListener('click',flipcard);
     }
+
 function checkMatch(){
   const cards = document.querySelectorAll('img')
+  console.log("all cards",cards)
   console.log('you found a match!')
   if (cardschosen[0] == cardschosen[1]){
     alert('you found a match!')
@@ -77,13 +79,21 @@ function checkMatch(){
 
 
 function flipcard(){
+// let cardId = this.getAttribute('data-id')
+// cardschosen.push(cardArray[cardId].name)
+// cardschosenId.push(cardId)
+// this.setAttribute('src',cardArray[cardId].img)
+// if(cardschosen.length==2){
+//   setTimeout(checkMatch,500) //calls the function after 5 milliseconds
+// }
 let cardId = this.getAttribute('data-id')
-cardschosen.push(cardArray[cardId].name)
-cardschosenId.push(cardId)
 this.setAttribute('src',cardArray[cardId].img)
-if(cardschosen.length==2){
-  setTimeout(checkMatch,500) //calls the function after 5 milliseconds
+cardschosenId.push(cardId)
+cardschosen.push(cardArray[cardId].name)
+if(cardschosen.length ==2){
+setTimeout(checkMatch,500);
 }
+
 }   
 }
 displayelements()
