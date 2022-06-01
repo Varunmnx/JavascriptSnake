@@ -53,27 +53,37 @@ cardArray.sort(()=>{
     return (0.5-Math.random())
 })
 // console.log(cardArray)
-const cardschosen=[];
+let cardschosen=[];
+let cardschosenId=[];
 let grid = document.querySelector('#grid')
+
 function displayelements(){
     for(let i=0;i<cardArray.length;i++){
        let card = document.createElement('img');
        card.setAttribute('src','./images/blank.png');
        card.setAttribute('data-id',i); //same as card element
-       card.addEventListener('click',flipcard);
        grid.appendChild(card);
+       card.addEventListener('click',flipcard);
     }
-//  function flipcard(){
-//    let cardId = this.getAttribute('data-id')
-//   //  console.log(cardArray[cardId]) 
-//   cardschosen.push(cardArray[cardId].name)
-//    console.log('clicked !!',cardId)
-//    this.setAttribute('src',cardArray[cardId].img)
-//  }
+function checkMatch(){
+  const cards = document.querySelectorAll('img')
+  console.log('you found a match!')
+  if (cardschosen[0] == cardschosen[1]){
+    alert('you found a match!')
+    cards[cardschosenId[0]].setAttribute('src','images/white.png')
+  }
+}
+
+
+
 function flipcard(){
 let cardId = this.getAttribute('data-id')
-console.log(cardId)
+cardschosen.push(cardArray[cardId].name)
+cardschosenId.push(cardId)
 this.setAttribute('src',cardArray[cardId].img)
+if(cardschosen.length==2){
+  setTimeout(checkMatch,500) //calls the function after 5 milliseconds
+}
 }   
 }
 displayelements()
