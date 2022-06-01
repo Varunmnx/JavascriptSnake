@@ -67,25 +67,22 @@ function displayelements(){
     }
 
 function checkMatch(){
-  const cards = document.querySelectorAll('img')
-  console.log("all cards",cards)
-  console.log('you found a match!')
-  if (cardschosen[0] == cardschosen[1]){
-    alert('you found a match!')
-    cards[cardschosenId[0]].setAttribute('src','images/white.png')
+  const allcards = document.querySelectorAll('img')//we need all html img elements not the array
+  if (cardschosen[0]==cardschosen[1]){
+    alert('wegotta fighter here!')
+    allcards[cardschosenId[0]].setAttribute('img','images/white.png')
+    allcards[cardschosenId[1]].setAttribute('img','images/white.png')
+    allcards[cardschosenId[0]].removeEventListener('click',flipcard)
+    allcards[cardschosenId[1]].removeEventListener('click',flipcard)
+
+    
   }
 }
 
 
 
 function flipcard(){
-// let cardId = this.getAttribute('data-id')
-// cardschosen.push(cardArray[cardId].name)
-// cardschosenId.push(cardId)
-// this.setAttribute('src',cardArray[cardId].img)
-// if(cardschosen.length==2){
-//   setTimeout(checkMatch,500) //calls the function after 5 milliseconds
-// }
+
 let cardId = this.getAttribute('data-id')
 this.setAttribute('src',cardArray[cardId].img)
 cardschosenId.push(cardId)
