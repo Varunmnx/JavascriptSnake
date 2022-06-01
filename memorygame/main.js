@@ -56,7 +56,8 @@ cardArray.sort(()=>{
 let cardschosen=[];
 let cardschosenId=[];
 let grid = document.querySelector('#grid')
-
+let cardsWon =[]
+const resultDisplay = document.querySelector('#result')
 function displayelements(){
     for(let i=0;i<cardArray.length;i++){
        let card = document.createElement('img');
@@ -68,24 +69,33 @@ function displayelements(){
 
 function checkMatch(){
 
-  // const cards = document.querySelectorAll('img')
-  // if(cardschosen[0]==cardschosen[1]){
-  //   alert('hurray ! found a match')
-  //   cards[cardschosenId[0]].setAttribute('src','images/white.png')
-  //   cards[cardschosenId[1]].setAttribute('src','images/white.png')
-  //   cards[cardschosenId[0]].removeEventListener('click',flipcard)
-  //   cards[cardschosenId[1]].removeEventListener('click',flipcard)
-    
-  // }
   const allcards = document.querySelectorAll('img')//we need all html img elements not the array
+  if (cardschosenId[0]==cardschosenId[1]){
+    allcards[cardschosenId[0]].setAttribute('src','images/blank.png')
+    allcards[cardschosenId[1]].setAttribute('src','images/blank.png')
+    alert('you clicked the same image!!')
+    
+  }else{
+
   if (cardschosen[0]==cardschosen[1]){
     alert('wegotta fighter here!')
     allcards[cardschosenId[0]].setAttribute('src','images/white.png')
     allcards[cardschosenId[1]].setAttribute('src','images/white.png')
     allcards[cardschosenId[0]].removeEventListener('click',flipcard)
     allcards[cardschosenId[1]].removeEventListener('click',flipcard)
-
+    cardsWon.push(cardschosen)
+    }else{
+      
+    allcards[cardschosenId[0]].setAttribute('src','images/blank.png')
+    allcards[cardschosenId[1]].setAttribute('src','images/blank.png')
+    alert('sorry try again')
     
+  }}
+  resultDisplay.innerHTML = cardsWon.length
+  cardsWon=[]
+  cardschosen=[]
+  if (cardsWon.length==(cardArray.length/2)){
+    resultDisplay.innerHTML = cardsWon.length //textContent can also be used
   }
 }
 
